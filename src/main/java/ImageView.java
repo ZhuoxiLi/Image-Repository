@@ -19,6 +19,7 @@ class ImageController extends MouseAdapter {
 
         int width = Thumbnail.WIDTH;
 
+        if (totalWidth == 0) totalWidth = 800;
         int num_per_row = totalWidth / width;
         int id = -1;
 

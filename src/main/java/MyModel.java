@@ -74,8 +74,16 @@ public class MyModel {
         JFileChooser jFileChooser = new JFileChooser();
         jFileChooser.setDialogTitle("Open File");
         jFileChooser.showOpenDialog(null);
-        String path = jFileChooser.getSelectedFile().getPath();
-        String name = jFileChooser.getSelectedFile().getName();
+        String path;
+        String name;
+        try {
+            path = jFileChooser.getSelectedFile().getPath();
+            name = jFileChooser.getSelectedFile().getName();
+        } catch (NullPointerException e){
+            e.printStackTrace();
+            return;
+        }
+
         int width = 240, height = 160;
         try {
             BufferedImage image = ImageIO.read(jFileChooser.getSelectedFile());

@@ -73,7 +73,13 @@ public class MyModel {
     public void openFile() {
         JFileChooser jFileChooser = new JFileChooser();
         jFileChooser.setDialogTitle("Open File");
-        jFileChooser.showOpenDialog(null);
+        int r = jFileChooser.showOpenDialog(null);
+
+        if (r != JFileChooser.APPROVE_OPTION) {
+            // users choose an image, and click CANCEL button, should not add the image
+            return;
+        }
+
         String path;
         String name;
         try {
